@@ -44,6 +44,7 @@ class Line2D:
     def __init__(self, v1, v2):
         self.__v1 = v1
         self.__v2 = v2
+        self.__len = Vector2D.distance(v1, v2)
 
     def __len__(self):
         return int(math.sqrt(math.pow(self.__v1.x - self.__v2.x, 2) + math.pow(self.__v1.y - self.__v2.y, 2)))
@@ -59,6 +60,30 @@ class Line2D:
 
     def __str__(self):
         return f"({self.__v1.x}, {self.__v1.y}) - ({self.__v2.x}, {self.__v2.y})"
+
+    def __le__(self, other):
+        if (self.__len <= other.__len):
+            return True
+        else:
+            return False
+
+    def __lt__(self, other):
+        if (self.__len < other.__len):
+            return True
+        else:
+            return False
+
+    def __ge__(self, other):
+        if (self.__len >= other.__len):
+            return True
+        else:
+            return False
+
+    def __gt__(self, other):
+        if (self.__len > other.__len):
+            return True
+        else:
+            return False
 
 
 v1 = Vector2D(10, 20)
@@ -79,7 +104,11 @@ line2 = Line2D(v2, v1)
 print(line1)
 print(len(line1))
 
-print(line1 == line1)
-print(line1 == line2)
+print(f"{line1} == {line1} = {line1 == line1}")
+print(f"{line1} == {line2} = {line1 == line2}")
+print(f"{line1} <= {line2} = {line1 <= line2}")
+print(f"{line1} >= {line2} = {line1 >= line2}")
+print(f"{line1} < {line2} = {line1 < line2}")
+print(f"{line1} > {line2} = {line1 > line2}")
 
 print("20192294 박정욱")
