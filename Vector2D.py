@@ -45,8 +45,8 @@ class Line2D:
         self.__v1 = v1
         self.__v2 = v2
 
-    def __len__():
-        pass
+    def __len__(self):
+        return int(math.sqrt(math.pow(self.__v1.x - self.__v2.x, 2) + math.pow(self.__v1.y - self.__v2.y, 2)))
 
     def __eq__(self, other):
         pass
@@ -70,5 +70,6 @@ print(f"{v1}와 {v2}사이의 거리 : {Vector2D.distance(v1, v2)}")
 
 line1 = Line2D(v1, v2)
 print(line1)
+print(len(line1))
 
 print("20192294 박정욱")
