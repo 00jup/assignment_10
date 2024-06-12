@@ -1,3 +1,6 @@
+import math
+
+
 class Vector2D:
 
     def __init__(self, x, y):
@@ -29,9 +32,16 @@ class Vector2D:
     def __str__(self):
         return f"({self.x}, {self.y})"
 
+    @classmethod
+    def distance(cls, a, b):
+        try:
+            return math.sqrt(math.pow(a.x - b.x, 2) + math.pow(a.y - b.y, 2))
+        except Exception as e:
+            return repr(e)
+
 
 v1 = Vector2D(10, 20)
-v2 = Vector2D(2, 5)
+v2 = Vector2D(10, 10)
 print(f"{v1} + {v2} = {v1+v2}")
 print(f"{v1} - {v2} = {v1-v2}")
 print(f"{v1} * {v2} = {v1*v2}")
@@ -40,5 +50,7 @@ print(f"-{v1} = {-v1}")
 print(f"{v1} == {v2} = {v1 == v2}")
 print(f"{v1} == {v1} = {v1 == v1}")
 print(f"{v1} == {10} = {v1 == 10}")
+
+print(f"{v1}와 {v2}사이의 거리 : {Vector2D.distance(v1, v2)}")
 
 print("20192294 박정욱")
